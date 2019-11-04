@@ -1,0 +1,41 @@
+{
+  "name": "react-debounce-component",
+  "version": "1.0.0",
+  "description": "Debounce input, search, render, functions or anything else with <Debounce/> in React and React Native",
+  "main": "dist/debounce.js",
+  "author": "Rebsos",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack"
+  },
+  "keywords": [
+    "debounce",
+    "React",
+    "React Native",
+    "input",
+    "component",
+    "debouncing",
+    "search",
+    "onchange",
+    "render",
+    "function",
+    "fetch",
+    "api",
+    "searchbar",
+    "functional component"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rebsos/react-debounce-component.git"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "react": "^16.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
