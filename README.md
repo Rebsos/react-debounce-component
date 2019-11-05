@@ -29,6 +29,8 @@ or use yarn.
 
 This is the most simple example. It just debounces the output of &lt;input&gt; for 1 second.
 
+![](example-1-demo.gif)
+
 ```js
 import React from 'react';
 import Debounce from 'react-debounce-component';
