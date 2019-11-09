@@ -27,7 +27,7 @@ or use yarn.
 
 ### Example 1
 
-This is the most simple example. It just debounces the output of &lt;input&gt; for 1 second.
+This is the most simple example. It just debounces the output of &lt;input&gt; for one second.
 
 ![](example-1-demo.gif)
 
@@ -54,6 +54,65 @@ class App extends React.Component {
 
 export default App;
 ```
+
+### Example 2
+
+This is a more common scenario, where a list gets fetched from the web.
+
+<details><summary>Expand</summary><p>
+
+```js
+import React from 'react';
+import Debounce from 'react-debounce-component';
+
+class App extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {value: ''}
+  }
+  render () {
+    return (
+      <div>
+        <input value={this.state.value} onChange={event => this.setState({value: event.target.value})}/>
+        <Debounce ms={1000}>
+          <List search={this.state.value}/>
+        </Debounce>
+      </div>
+    );
+  }
+}
+
+class List extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {items: []};
+  }
+  componentDidUpdate (prevProps) {
+    if (prevProps !== this.props) { // Prevent rendering after setState()
+      fetch('https://api.publicapis.org/entries?title=' + this.props.search)
+        .then(res => res.json())
+        .then(result => this.setState({items: result.entries || []}));
+    }
+  }
+  render () {
+    return (
+      <ul>
+        {this.state.items.map(item => (
+          <li key={item.Link}>
+            {item.API} {item.Link}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+}
+
+export default App;
+```
+</p></details>
+
+
+
 
 
 ## Props
